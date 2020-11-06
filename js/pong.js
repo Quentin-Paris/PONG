@@ -1,13 +1,13 @@
 
 // gestion du déplacement de la ball
 let largeur=$("#ball").width();
-let gauche=parsInt($("#ball").css("left"));
-let haut=parsInt($("#ball").css("top"));
+let gauche=parseInt($("#ball").css("left"));
+let haut=parseInt($("#ball").css("top"));
 alert(gauche)
 
-setsetInterval(function(){
+setInterval(function(){
     gauche=gauche+1;
     haut=haut+0.5;
-    $("#ball").css("left",gauche)
-    $("#ball").css("top",haut)
+    $("#ball").css("left",gauche);
+    $("#ball").css("top",haut);
 }, 10);
