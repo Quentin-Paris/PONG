@@ -1,34 +1,32 @@
-/** les couleurs du font et import de polices **/
 body{
-    background-color: black;
-   /** gestion de la police **/
-    color: #fff;
-    font-family: monospace;
-    /** tous es au centre **/
-    display: flex;
+    /** permet de centrer les éléments dans la page **/
+  display: flex;
     min-height: 100vh;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    background-color:#000;
+    color:#fff;
+    font-family: monospace;
 }
 
-/** On paramétre le ref terrain **/
 #terrain{
-    /** il à une bordure 1 pixel blanc **/
-    border:1px solid white;
-    /** On défénit les dimmension du terrain **/
-    width: 800px;
-    height: 400px;
+/**dessin du tableau**/
+border:1px solid white ;
+width:800px;
+height:400px;
+position: relative;
 
 }
-/** On paramétre le ref ball **/
-#ball{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 10px;
-    height: 10px;
+
+#balle{
+/**dessin de la balle**/
+    width:20px;
+    height:20px;
     background-color: white;
-    border-radius: 4px;
+    border-radius: 25px;
+    position:absolute;
+    top:50%;
+    left:50%;
 }
