@@ -1,32 +1,65 @@
-body{
-    /** permet de centrer les éléments dans la page **/
-  display: flex;
+body
+{
+    
+    background-color: #000000;
+    color: #00ff00;
+    font-family: monospace;
+    
+    /** on centre tout **/
+    display: flex;
     min-height: 100vh;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color:#000;
-    color:#fff;
-    font-family: monospace;
 }
 
-#terrain{
-/**dessin du tableau**/
-border:1px solid white ;
-width:800px;
-height:400px;
-position: relative;
+/** parametrage du ou des "objets" terrain **/
+#terrain
+{
+    position: relative;
 
+    border:1px solid #000;
+    border-top-color:#fff;
+    border-bottom-color:#fff;
+    
+    width: 800px;
+    height : 400px;
+}
+.tilt{
+    border-color: rgb(0, 250, 0) !important;
 }
 
-#balle{
-/**dessin de la balle**/
-    width:20px;
-    height:20px;
-    background-color: white;
-    border-radius: 25px;
-    position:absolute;
-    top:50%;
-    left:50%;
+/** parametrage du ou des "objets" balle **/
+#balle
+{
+    position: absolute;
+    top : 50%;
+    left: 50%;
+
+    border-radius: 100%;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(255, 0, 0);
+}
+
+/** parametrage du ou des "objets" raquette **/
+.raquette
+{
+    position: absolute;
+
+    --hauteur: 25%; /* mise en place des variable 
+    top : calc( 50% - var(--hauteur)/2 ); /** clac, faire des calculs en css // var utiliser la variable **/
+
+    width: 10px;
+    height: var(--hauteur);
+    background-color: rgb(4, 0, 255);
+}
+#droite
+{
+    right: 1%;
+}
+#gauche
+{
+    left: 1%;
 }
