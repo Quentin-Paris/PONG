@@ -1,47 +1,102 @@
-class Raquette
-{
-    constructor($element)
-    {
+//Classe de creation d'un objet raquette
+class Raquette {
+    constructor($element) {
+
         this.$element = $element;
-
-        this.largeur = $element.width();
+        /**
+         *
+         * @type {number}
+         */
         this.hauteur = $element.height();
-
+        /**
+         *
+         * @type {number}
+         */
+        this.largeur = $element.width();
+        /**
+         *
+         * @type {number}
+         */
         this.positionX = parseInt($element.css("left"));
+        /**
+         *
+         * @type {number}
+         */
         this.positionY = parseInt($element.css("top"));
-
-        this.direction = 1;
+        /**
+         *
+         * @type {number}
+         */
+        this.direction = 0;
+        /**
+         *
+         * @type {number}
+         */
         this.vitesse = 3;
     }
 
-    bouger()
-    {
-        this.positionY += this.vitesse*this.direction;
+    /**
+     *
+     * @returns {number}
+     */
+    get bas() {
+        return this.positionY + this.hauteur;
+    }
+
+    /**
+     *
+     * @param value
+     */
+    set bas(value) {
+        this.positionY = value - this.hauteur;
+    }
+
+    /**
+     *
+     * @returns {number}
+     */
+    get droite() {
+        return this.positionX + this.largeur;
+    }
+
+    /**
+     *
+     * @param value
+     */
+    set droite(value) {
+        this.positionX = value - this.largeur;
+    }
+
+    bouger() {
+        this.positionY += this.vitesse * this.direction;
         this.limite();
         this.majHTML();
     }
 
-    changeDirection()
-    {
-        this.direction *= -1;
+    monter() {
+        this.direction = -1;
     }
 
-    majHTML()
-    {
-        this.$element.css("top",this.positionY);
+    descendre() {
+        this.direction = 1;
     }
 
-    limite()
-    {
-        if(this.positionY + this.hauteur > terrain.hauteur)
-        {
-            this.positionY = terrain.hauteur - this.hauteur;
-            this.changeDirection();
+    arret() {
+        this.direction = 0;
+    }
+
+    majHTML() {
+        this.$element.css("top", this.positionY);
+    }
+
+    limite() {
+        if (this.bas > terrain.hauteur) {
+            this.bas = terrain.hauteur;
+            this.arret();
         }
-        if(this.positionY < 0)
-        {
+        if (this.positionY < 0) {
             this.positionY = 0;
-            this.changeDirection();
+            this.arret();
         }
     }
 }
