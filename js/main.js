@@ -1,25 +1,39 @@
-//Classe de création d'un objet balle
 //on creer un nouvel objet a partir de ceux de HTML/CSS
 /**
  *Initialise un nouveau terrain pour le jeu
  * @type {Terrain}
  */
 let terrain = new Terrain($("#terrain"));
+
 /**
  *Initialise une nouvelle balle
  * @type {Balle}
  */
 let balle = new Balle($("#balle"));
+
 /**
  *Initialise une raquette gauche
  * @type {Raquette}
  */
 let raquetteGauche = new Raquette($("#gauche"));
+
 /**
  *Initialise une raquette droite
  * @type {Raquette}
  */
 let raquetteDroite = new Raquette($("#droite"));
+
+/**
+ *
+ * @type {Joueur}
+ */
+let joueur0 = new Joueur($("#Sgauche"));
+
+/**
+ *
+ * @type {Joueur}
+ */
+let joueur1 = new Joueur($("#Sdroite"));
 
 //boucle afin de modifier la position de la balle et des raquettes toutes les 10 millisecondes
 //les if servent à tester les collisions avec les bordures du terrain, et ainsi de faire rebondir la balle ou la laquette
